@@ -1,0 +1,18 @@
+FROM node:19-alpine3.15 AS DEV
+ENV NODE_ENV=dev-stage
+#working dir inside the container/image
+WORKDIR /app
+
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+# npm install installs all packages just like git clone
+
+RUN npm install
+
+# get our source code into the image, take everything in our local directory(.) and
+# copy into the working dir(.)
+COPY . .
+
+# when the docker starts running the image, the below cmds I need to run.
+CMD [ "npm", "run", "start" ]
