@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .dockerignore
-# .gitignore
-# .package-lock.json
-# .build
-# .node_modules
+.gitignore
+.package-lock.json
+.build
+.node_modules
